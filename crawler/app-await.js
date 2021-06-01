@@ -12,9 +12,9 @@ const moment = require("moment");
 
 function readFilePromise() {
   return new Promise((resolve, reject) => {
-    fs.readFile("stock.txt", "utf8", (err, data) => {
-      if (err) {
-        reject(err);
+    fs.readFile("stock.txt", "utf8", (error, data) => {
+      if (error) {
+        reject(error);
       }
       resolve(data);
     });
