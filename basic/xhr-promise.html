@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>XHR</title>
+  </head>
+  <body>
+    <button id="asyncBtn">非同步</button>
+    <button id="countBtn">計數器</button>
+    <div id="count">0</div>
+    <div id="message">XXXXX</div>
+  </body>
+  <script>
+    var message = document.getElementById("message");
+    var asyncBtn = document.getElementById("asyncBtn");
+    var countBtn = document.getElementById("countBtn");
+    var count = document.getElementById("count");
+
+    countBtn.addEventListener("click", function () {
+      count.innerText = parseInt(count.innerText, 10) + 1;
+    });
+    
+    var xhr = new XMLHttpRequest()
+
+    function xhrPromise() {
+    return new Promise((resolve, reject) => {
+      xhr.onload = function () {
+          console.log(xhr)
+        if (xhr.status === 200) {
+            resolve (message.innerText = `${xhr.responseText}`)           
+        } else {
+            reject (message.innerText = ` ${xhr.status}`)            
+        };
+      };
+      xhr.open("GET", "http://34.217.120.25:3000", true);
+      xhr.send(null);
+    });
+}
+    asyncBtn.addEventListener("click", function () {
+      xhrPromise()
+      .then((result) => { 
+        console.log(result.data)
+      })
+      .catch((err) => {
+        console.error(err);
+    });
+    });
+    
+  </script>
+</html>
