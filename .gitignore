@@ -4,4 +4,4 @@ logs
 *.log
 
 .DS_Store
-.env.example
+.env
