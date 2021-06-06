@@ -3,27 +3,26 @@ const axios = require("axios");
 //引入promise版的 fs
 const fs = require("fs/promises");
 const moment = require("moment");
-// const mysql = require("mysql");
+const mysql = require("mysql");
 const Promise = require("bluebird");
 
-require('dotenv').config()
+require("dotenv").config();
 
-const mysql      = require('mysql');
 let connection = mysql.createConnection({
-  host     :  process.env.DB_HOST,
-  port     :  process.env.DB_PORT,
-  user     : process.env.DB_USER,
-  password : process.env.DB_PASSWORD,
-  database : process.env.DB_NAME,
-  });
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
+});
 connection = Promise.promisifyAll(connection);
 
 (async function() {
   try{
       await connection.connectAsync();
-  
   let stockCode = await fs.readFile("stock.txt", "utf-8");
   console.log(`讀到的 stock code: ${stockCode}`);
+
   let stock = await connection.queryAsync(`SELECT stock_id FROM stock WHERE stock_id = ${stockCode}`
   );
   if (stock.length <= 0) {
