@@ -3,17 +3,19 @@ const axios = require("axios");
 //引入promise版的 fs
 const fs = require("fs/promises");
 const moment = require("moment");
-const mysql = require("mysql");
+// const mysql = require("mysql");
 const Promise = require("bluebird");
 
+require('dotenv').config()
 
+const mysql      = require('mysql');
 let connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "stock",
-});
-
+  host     :  process.env.DB_HOST,
+  port     :  process.env.DB_PORT,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASSWORD,
+  database : process.env.DB_NAME,
+  });
 connection = Promise.promisifyAll(connection);
 
 (async function() {
