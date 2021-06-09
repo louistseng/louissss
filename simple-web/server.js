@@ -10,6 +10,9 @@ const http = require("http")
 // request 是請求物件
 // response 是回覆物件
 
+// const path = req.url.replace
+// const url = new URL(req.res,`http://${path}`)
+
 const server = http.createServer((req,res) => {
     console.log("是不是有連線");
     console.log(req.url);
@@ -17,15 +20,16 @@ const server = http.createServer((req,res) => {
     res.statusCode = 200;
     res.setHeader("Content-Type","text/plain;charset=utf-8")
 
-    switch (req.url){
+    switch (req,res){
         case "/":
-            res.end("home");
+            res.end("lalala home");
             break;
         case "/test":
             res.end("test");
             break;
         case "/about":
-            res.end("about");
+            // let name = url.searchParams.get("name") || "網友";
+            res.end(`this is about `);
             break;
             default:
                 res.writeHead(404);
