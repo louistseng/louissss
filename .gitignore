@@ -5,3 +5,7 @@ logs
 
 .DS_Store
 .env
+
+package-lock.json
+
+stock.txt
