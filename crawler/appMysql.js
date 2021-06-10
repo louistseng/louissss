@@ -25,7 +25,7 @@ try{
         let response = await axios.get(
             `https://www.twse.com.tw/zh/api/codeQuery?query=${stock}`
           );
-          let answer = response.data.suggestions.shift();
+        let answer = response.data.suggestions.shift();
         let answers = answer.split("\t");
       // console.log(stockInfos);
         console.log(answers);
