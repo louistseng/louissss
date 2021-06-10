@@ -25,14 +25,13 @@ const fsBlue = promise.promisifyAll(fs);
 fsBlue.readFileAsync("stock.txt", "utf8")
   .then((stock) => {
     console.log("stockNo:", stock);
-    return axios({
-              method:"get",
-              url:"https://www.twse.com.tw/exchangeReport/STOCK_DAY", 
-              response: "json",
-              date: moment().format("YYYYMMDD"),
-              stockNo: stock,
-            })
-    
+    return axios.get("https://www.twse.com.tw/exchangeReport/STOCK_DAY", {
+      params: {
+        response: "json",
+        date: moment().format("YYYYMMDD"),
+        stockNo: stock,
+      },
+    })  
   })
   .then(function (response) {
     if (response.data.stat === "OK") {
