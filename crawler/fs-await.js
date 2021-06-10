@@ -1,20 +1,22 @@
 const axios = require("axios");
+// 引入 promise 版本
 const fs = require("fs/promises");
 const moment = require("moment");
 
 // console.log(moment().format()); // 2021-05-30T13:45:06+08:00
 // console.log(moment().format("YYYYMMDD")); // 20210530
 
-function readFilePromise() {
-  return new Promise((resolve, reject) => {
-    fs.readFile("stock.txt", "utf8", (error, data) => {
-      if (error) {
-        reject(error);
-      }
-      resolve(data);
-    });
-  });
-}
+// 因為有 fs 的 promise 版本，所以不用自己包了
+// function readFilePromise() {
+//   return new Promise((resolve, reject) => {
+//     fs.readFile("stock.txt", "utf8", (error, data) => {
+//       if (error) {
+//         reject(error);
+//       }
+//       resolve(data);
+//     });
+//   });
+// }
 
 async function main() {
   try {
