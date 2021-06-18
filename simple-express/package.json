@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.7.2",
+    "dotenv": "^10.0.0",
     "pug": "^3.0.2"
   }
 }
