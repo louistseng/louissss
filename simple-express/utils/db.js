@@ -13,4 +13,8 @@ let connection = mysql.createConnection({
 //connection->Promise化
 connection = Promise.promisifyAll(connection);
 
+// exports.connection = connection;
+// connection.connection.connectAsync();
+
 module.exports = connection;
+
