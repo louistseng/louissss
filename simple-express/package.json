@@ -1,19 +1,21 @@
 {
-  "name": "express",
+  "name": "simple-express",
   "version": "1.0.0",
-  "description": "",
-  "main": "server1.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server1.js",
+    "dev": "nodemon server.js",
     "watch": "npx browser-sync start --config bs-config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "bluebird": "^3.7.2",
     "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
     "pug": "^3.0.2"
   }
 }
