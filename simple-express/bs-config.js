@@ -12,12 +12,12 @@
  |
  |
  */
- module.exports = {
-    port: 3001,
-    proxy: "localhost:3000",
-    files: ["public/**/*.css", "views/**/*.pug", "public/**/*.js"],
-    ignore: ["node_modules"],
-    reloadDelay: 10,
-    ui: false,
-    notify: false,
-  };
+    module.exports = {
+        port: 3001, 
+        proxy: "localhost:3000",
+        files: ["public/**/*.css", "views/**/*.pug", "public/**/*.js"],
+        ignore: ["node_modules"],
+        reloadDelay: 10,
+        ui: false,
+        notify: false,
+    };
