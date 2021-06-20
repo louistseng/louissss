@@ -1,7 +1,7 @@
 extends ../_layouts/master
 
 block content 
-  h1 股票細節頁: #{stock.stock_name} #{pagination.currentPage}
+  h1 股票細節頁: #{stock.stock_name} 
 
   table 
     tr 
@@ -18,6 +18,6 @@ block content
         td #{price.low_price} 
         td #{price.close_price} 
 
-      .pagination 
-        - for(var p = 1; p <= pagination.lastPage; p++)
-         a(href=`/stock/${stock.stock_id}?page=${p}`, class=p==pagination.currentPage?"active":"") #{p}
+    .pagination 
+      - for(var p = 1; p <= pagination.lastPage; p++)
+        a(href=`/stock/${stock.stock_id}?page=${p}`, class=p==pagination.currentPage?"active":"") #{p}
