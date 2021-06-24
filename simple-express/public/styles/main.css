@@ -1,4 +1,4 @@
-img{
+img {
   width: 400px;
 }
 table {
@@ -109,9 +109,4 @@ li a {
 
 li a:hover {
   background-color: #5472bd;
-}
-
-footer {
-  position: absolute;
-  bottom: 15%;
 }
