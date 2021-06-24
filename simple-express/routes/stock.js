@@ -9,6 +9,8 @@ router.get("/", async (req,res) => {
         stocks: queryResults,
     });
 });
+// res.locals.stocks = queryResults;
+// res.render("stock/list");
 
 router.get("/:stockCode",async (req,res,next) => {
     // res.send(req.params.stockCode);
